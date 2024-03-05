@@ -1,9 +1,8 @@
-// const md5 = require('md5');
-// import md5 from 'md5';
+
 const element = document.querySelector('form');
 element.addEventListener('submit', event => {
     event.preventDefault();
-    // actual logic, e.g. validate the form
+    
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
     let password_hash = CryptoJS.MD5(password);
@@ -16,6 +15,8 @@ element.addEventListener('submit', event => {
             let table = document.getElementById("user_table");
             document.getElementById("fetch_again").style.display = "block";
             table.style.display = "block";
+
+            // now if role is admin, all data is shown
             if (role == 'admin') {
                 
                 data.all_users.forEach((user) => {
